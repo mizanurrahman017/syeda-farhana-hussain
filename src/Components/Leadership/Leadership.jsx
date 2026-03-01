@@ -63,12 +63,6 @@ const Leadership = () => {
       school: "Syeda Farhana Hussain High School",
       img: "/leaders/leader8.jpg",
     },
-    {
-      name: "জনাব ________",
-      role: "Teacher",
-      school: "Syeda Farhana Hussain High School",
-      img: "/leaders/leader9.jpg",
-    },
   ];
 
   return (
