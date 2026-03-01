@@ -1,205 +1,186 @@
 import React, { useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router"; // useNavigate added
-import { FaBullhorn, FaMedal } from "react-icons/fa";
+import { NavLink, useLocation, useNavigate } from "react-router";
+import { FaBullhorn, FaMedal, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 const Navbar = ({ scrollToResults }) => {
-    const [aboutOpen, setAboutOpen] = useState(false);
-    const navigate = useNavigate();
-    const location = useLocation();
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [academicOpen, setAcademicOpen] = useState(false);
+  const [calendarModalOpen, setCalendarModalOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const handleExamResultsClick = () => {
-        // যদি Home পেজে না থাকি, আগে Home এ navigate করি
-        if (location.pathname !== "/") {
-            navigate("/"); // Home route
-            // wait a tick তারপর scroll করি
-            setTimeout(() => {
-                scrollToResults?.();
-            }, 100); // 100ms delay
-        } else {
-            scrollToResults?.(); // Home already, direct scroll
-        }
-    };
+  const handleExamResultsClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToResults?.(), 100);
+    } else {
+      scrollToResults?.();
+    }
+  };
 
-    return (
-        <div className="w-full">
-            {/* Top Contact Bar */}
-            <div className="bg-[#2f3e55] text-white text-sm">
-                <div className="max-w-7xl mx-auto flex justify-between px-4 py-2">
-                    <div className="flex gap-6">
-                        <p>📞 01869438544</p>
-                        <p>✉️ sfhhs@gmail.com</p>
-                    </div>
-                    <div className="flex gap-6">
-                        <p>📅 Established 1965</p>
-                        <p>EIIN: 130127</p>
-                    </div>
-                </div>
+  return (
+    <div className="w-full shadow-md">
+      {/* Logo + Actions */}
+      <div className="bg-gray-100">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <div className="flex items-center gap-4">
+            <NavLink to="/">
+              <img src="/logo.png" alt="Logo" className="w-16 transition duration-300 hover:scale-110" />
+            </NavLink>
+            <div>
+              <NavLink to="/" className="no-underline">
+                <h1 className="text-xl font-bold text-blue-400 cursor-pointer">
+                  Syeda Farhana Hussain High School
+                </h1>
+                <p className="text-gray-500 text-sm cursor-pointer">
+                  "শিক্ষা নিয়ে গড়ব দেশ লাল সবুজের বাংলাদেশ"
+                </p>
+              </NavLink>
             </div>
+          </div>
 
-            {/* Logo Section */}
-            <div className="bg-gray-100">
-                <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
-                    <div className="flex items-center gap-4 group cursor-pointer">
-                        <img
-                            src="/logo.png"
-                            alt="logo"
-                            className="w-16 transition duration-300 group-hover:scale-110"
-                        />
-                        <div>
-                            <h1 className="text-xl font-bold text-blue-400">
-                                Syeda Farhana Hussain High School
-                            </h1>
-                            <p className="text-gray-500 text-sm">
-                                "শিক্ষা নিয়ে গড়ব দেশ লাল সবুজের বাংলাদেশ"
-                            </p>
-                        </div>
-                    </div>
+          {/* Desktop Buttons */}
+          <div className="hidden md:flex items-center gap-4">
+            <NavLink
+              to="/notices"
+              className="flex items-center gap-2 bg-[#2f4e85] text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
+            >
+              <FaBullhorn /> Latest Notices
+            </NavLink>
 
-                    {/* Right Side Buttons */}
-                    <div className="flex items-center gap-4">
-                        <NavLink
-                            to="/notices"
-                            className="flex items-center gap-2 bg-[#2f4e85] text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
-                        >
-                            <FaBullhorn />
-                            Latest Notices
-                        </NavLink>
+            <button
+              onClick={handleExamResultsClick}
+              className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-400 text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
+            >
+              <FaMedal /> Exam Results
+            </button>
+          </div>
 
-                        {/* Exam Results Button */}
-                        <button
-                            onClick={handleExamResultsClick}
-                            className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-400 text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
-                        >
-                            <FaMedal />
-                            Exam Results
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            {/* Notice Bar */}
-            <div className="bg-[#7a4f55] text-white">
-                <div className="max-w-7xl mx-auto flex items-center gap-3 px-4 py-2">
-                    <span className="bg-white text-red-500 text-xs px-2 py-1 rounded font-bold">
-                        NOTICE
-                    </span>
-                    <p className="text-sm">
-                        শিক্ষাবর্ষ লটারি অনুযায়ী ভর্তি কার্যক্রম সম্পন্ন
-                    </p>
-                </div>
-            </div>
-
-            {/* Main Navbar */}
-            <div className="bg-[#4f6ea5] text-white">
-                <div className="max-w-7xl mx-auto">
-                    <ul className="flex justify-center items-center gap-10 py-3 font-medium">
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "text-yellow-300"
-                                        : "hover:text-yellow-300"
-                                }
-                            >
-                                হোম
-                            </NavLink>
-                        </li>
-
-                        {/* About Dropdown */}
-                        <li
-                            className="relative"
-                            onMouseEnter={() => setAboutOpen(true)}
-                            onMouseLeave={() => setAboutOpen(false)}
-                        >
-                            <span className="cursor-pointer hover:text-yellow-300">
-                                আমাদের সম্পর্কে
-                            </span>
-
-                            {aboutOpen && (
-                                <ul className="absolute top-10 left-0 bg-white text-black w-64 shadow-lg rounded">
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/history">
-                                            প্রতিষ্ঠানের ইতিহাস
-                                        </NavLink>
-                                    </li>
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/governing">
-                                            গভর্নিং বডি
-                                        </NavLink>
-                                    </li>
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/teachers">
-                                            শিক্ষকদের তথ্য
-                                        </NavLink>
-                                    </li>
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/students">
-                                            শিক্ষার্থীর তথ্য
-                                        </NavLink>
-                                    </li>
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/staff">
-                                            কর্মকর্তা ও কর্মচারীর তথ্য
-                                        </NavLink>
-                                    </li>
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/approval">
-                                            অনুমোদন
-                                        </NavLink>
-                                    </li>
-                                    <li className="hover:bg-gray-100 px-4 py-2">
-                                        <NavLink to="/service">
-                                            তথ্য সেবা কেন্দ্রের ঠিকানা ও মোবাইল
-                                        </NavLink>
-                                    </li>
-                                </ul>
-                            )}
-                        </li>
-
-                        <li>
-                            <NavLink
-                                to="/academic"
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "text-yellow-300"
-                                        : "hover:text-yellow-300"
-                                }
-                            >
-                                একাডেমিক
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink
-                                to="/gallery"
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "text-yellow-300"
-                                        : "hover:text-yellow-300"
-                                }
-                            >
-                                গ্যালারি
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink
-                                to="/contact"
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "text-yellow-300"
-                                        : "hover:text-yellow-300"
-                                }
-                            >
-                                যোগাযোগ
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          {/* Mobile Hamburger */}
+          <div className="md:hidden">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-2xl text-gray-700">
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
         </div>
-    );
+      </div>
+
+      {/* Main Navbar */}
+      <div className="bg-[#4f6ea5] text-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex justify-center items-center gap-10 py-3 font-medium">
+            <li>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "text-yellow-300" : "hover:text-yellow-300")}>
+                হোম
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/about" className="hover:text-yellow-300">
+                আমাদের সম্পর্কে
+              </NavLink>
+            </li>
+
+            {/* Academic Dropdown Click */}
+            <li className="relative">
+              <button
+                onClick={() => setAcademicOpen(!academicOpen)}
+                className="flex items-center gap-1 hover:text-yellow-300 focus:outline-none"
+              >
+                একাডেমিক <FaChevronDown />
+              </button>
+
+              {academicOpen && (
+                <ul className="absolute top-10 left-0 bg-white text-black w-56 shadow-lg rounded z-50">
+                  <li className="hover:bg-gray-100 px-4 py-2">
+                    <NavLink to="/routine">রুটিন</NavLink>
+                  </li>
+                  <li className="hover:bg-gray-100 px-4 py-2">
+                    <NavLink to="/result">রেজাল্ট</NavLink>
+                  </li>
+                  <li
+                    className="hover:bg-gray-100 px-4 py-2 cursor-pointer"
+                    onClick={() => setCalendarModalOpen(true)}
+                  >
+                    একাডেমিক ক্যালেন্ডার
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <NavLink to="/gallery" className={({ isActive }) => (isActive ? "text-yellow-300" : "hover:text-yellow-300")}>
+                গ্যালারি
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" className={({ isActive }) => (isActive ? "text-yellow-300" : "hover:text-yellow-300")}>
+                যোগাযোগ
+              </NavLink>
+            </li>
+          </ul>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <ul className="md:hidden flex flex-col gap-4 bg-[#4f6ea5] py-4 text-white px-6">
+              <li>
+                <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>হোম</NavLink>
+              </li>
+              <li>
+                <NavLink to="/about" onClick={() => setMobileMenuOpen(false)}>আমাদের সম্পর্কে</NavLink>
+              </li>
+              <li>
+                <details>
+                  <summary className="cursor-pointer">একাডেমিক</summary>
+                  <ul className="ml-4 mt-2 flex flex-col gap-2 text-black bg-white p-2 rounded">
+                    <li>
+                      <NavLink to="/routine" onClick={() => setMobileMenuOpen(false)}>রুটিন</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/result" onClick={() => setMobileMenuOpen(false)}>রেজাল্ট</NavLink>
+                    </li>
+                    <li>
+                      <button onClick={() => setCalendarModalOpen(true)} className="text-left w-full">
+                        একাডেমিক ক্যালেন্ডার
+                      </button>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <NavLink to="/gallery" onClick={() => setMobileMenuOpen(false)}>গ্যালারি</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>যোগাযোগ</NavLink>
+              </li>
+            </ul>
+          )}
+        </div>
+      </div>
+
+   {/* Academic Calendar Modal */}
+{calendarModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+    <div className="bg-white max-w-3xl w-full p-6 rounded-xl relative overflow-y-auto max-h-[90vh]">
+      <button
+        onClick={() => setCalendarModalOpen(false)}
+        className="absolute top-3 right-3 text-xl font-bold hover:text-gray-700"
+      >
+        ✕
+      </button>
+      <h2 className="text-2xl font-bold text-center mb-4">একাডেমিক ক্যালেন্ডার</h2>
+      <img
+        src="/public/Calendar.jpg" // তোমার calendar image
+        alt="Academic Calendar"
+        className="w-full max-h-[70vh] object-contain rounded-lg"
+      />
+    </div>
+  </div>
+)}
+    </div>
+  );
 };
 
 export default Navbar;

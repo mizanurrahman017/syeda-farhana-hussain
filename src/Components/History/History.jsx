@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
-import schoolImg from "../../../public/school banner.jpg"; // তোমার image এখানে বসাও
+import schoolImg from "/school banner.jpg"; // তোমার image এখানে বসাও
 
 const History = () => {
     return (
@@ -35,12 +35,12 @@ const History = () => {
                     </p>
 
                     {/* NavLink Button */}
-                    <NavLink
+                    {/* <NavLink
                         to="/about"
                         className="inline-block bg-blue-400 hover:bg-blue-700 text-white px-7 py-3 rounded-full font-semibold shadow-md transition duration-300"
                     >
                         Learn More About Us
-                    </NavLink>
+                    </NavLink> */}
 
                 </div>
 

@@ -3,16 +3,16 @@ import React, { useEffect, useRef, useState } from "react";
 const Banner = () => {
 
   const slides = [
-    { img: "/public/school banner.jpg", text: "School Building" },
-    { img: "/public/school banner 2.jpg", text: "School Building" },
+    { img: "/school banner.jpg", text: "School Building" },
+    { img: "/school banner 2.jpg", text: "School Building" },
 
-    { img: "/public/school banner 3.jpeg", text: "Farewell" },
+    { img: "/school banner 3.jpeg", text: "Farewell" },
 
-    { img: "/public/study tour.jpeg", text: "Study Tour" },
-    { img: "/public/teacher.jpeg", text: "Study Tour" },
+    { img: "/study tour.jpeg", text: "Study Tour" },
+    { img: "/teacher.jpeg", text: "Study Tour" },
 
-    { img: "/public/february.jpeg", text: "21 February" },
-    { img: "/public/sir.jpeg", text: "21 February" },
+    { img: "/february.jpeg", text: "21 February" },
+    { img: "/sir.jpeg", text: "21 February" },
   ];
 
   // duplicate for infinite effect
