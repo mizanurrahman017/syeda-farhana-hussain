@@ -80,7 +80,7 @@ const Banner = () => {
 
               <img
                 src={slide.img}
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[260px] md:h-[500px] object-contain md:object-cover bg-black"
                 alt=""
               />
 
@@ -116,11 +116,10 @@ const Banner = () => {
           {slides.map((_, i) => (
             <div
               key={i}
-              className={`h-2 w-8 rounded-full ${
-                index % slides.length === i
+              className={`h-2 w-8 rounded-full ${index % slides.length === i
                   ? "bg-white"
                   : "bg-white/40"
-              }`}
+                }`}
             />
           ))}
         </div>

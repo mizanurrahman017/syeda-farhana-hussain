@@ -32,15 +32,15 @@ const Welcome = () => {
                     Where Excellence in Education Meets Character Development
                 </p>
 
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
 
-                    <button className="bg-blue-400 hover:bg-blue-700 px-6 py-3 rounded-3xl font-semibold">
+                    <button className="bg-blue-400 hover:bg-blue-700 px-6 py-3 rounded-3xl font-semibold w-full sm:w-auto transition">
                         Apply for Admission
                     </button>
 
                     <button
                         onClick={() => setOpenModal(true)}
-                        className="border border-white px-6 py-3 rounded-3xl font-semibold hover:bg-white hover:text-black transition"
+                        className="border border-white px-6 py-3 rounded-3xl font-semibold hover:bg-white hover:text-black transition w-full sm:w-auto"
                     >
                         Discover Our Story
                     </button>
