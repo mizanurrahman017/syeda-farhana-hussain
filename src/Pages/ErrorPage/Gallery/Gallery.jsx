@@ -6,16 +6,17 @@ const Gallery = () => {
   // ১০টি ইমেজের ডামি ডাটা
   const galleryData = [
     { id: 1, title: "Study Tour 2025", url: "/study tour.jpeg" },
-    { id: 2, title: "Annual Sports", url: "/sir.jpeg" },
-    { id: 3, title: "Cultural Program", url: "/teacher.jpeg" },
-    { id: 4, title: "Prize Giving", url: "/february.jpeg" },
-    { id: 5, title: "Classroom Activities", url: "/school banner.jpg" },
-    { id: 6, title: "Farewell 2026", url: "/school banner 3.jpeg" },
-    { id: 7, title: "Science Fair", url: "/ujjal.jpeg" },
-    { id: 8, title: "Campus View", url: "https://picsum.photos/id/80/800/600" },
-    { id: 9, title: "Group Photo", url: "https://picsum.photos/id/90/800/600" },
-    { id: 10, title: "Workshop", url: "https://picsum.photos/id/100/800/600" },
-    { id: 11, title: "Workshop", url: "https://picsum.photos/id/100/800/600" },
+    { id: 2, title: "Teachers ", url: "/sir.jpeg" },
+    { id: 3, title: "Study Tour 2023", url: "/teacher.jpeg" },
+    { id: 4, title: "21 february", url: "/february.jpeg" },
+    { id: 5, title: "Campus View", url: "/school banner.jpg" },
+    { id: 6, title: "Farewell 2025", url: "/school banner 3.jpeg" },
+    { id: 7, title: "Shohid Minar", url: "/public/shohid minar.jpeg" },
+    { id: 8, title: "Prize Giving", url: "/public/khela.jpeg" },
+    { id: 9, title: "Annual Sports", url: "/public/annual sport.jpeg" },
+    { id: 10, title: "Campus", url: "/public/campus.jpeg" },
+    { id: 11, title: "Program", url: "/public/program.jpeg" },
+    { id: 11, title: "SSC BATCH 2025", url: "/public/ssc batch.jpeg" },
     
   ];
 
