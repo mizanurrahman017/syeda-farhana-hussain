@@ -11,12 +11,12 @@ const Gallery = () => {
     { id: 4, title: "21 february", url: "/february.jpeg" },
     { id: 5, title: "Campus View", url: "/school banner.jpg" },
     { id: 6, title: "Farewell 2025", url: "/school banner 3.jpeg" },
-    { id: 7, title: "Shohid Minar", url: "/public/shohid minar.jpeg" },
-    { id: 8, title: "Prize Giving", url: "/public/khela.jpeg" },
-    { id: 9, title: "Annual Sports", url: "/public/annual sport.jpeg" },
-    { id: 10, title: "Campus", url: "/public/campus.jpeg" },
-    { id: 11, title: "Program", url: "/public/program.jpeg" },
-    { id: 11, title: "SSC BATCH 2025", url: "/public/ssc batch.jpeg" },
+    { id: 7, title: "Shohid Minar", url: "/shohid minar.jpeg" },
+    { id: 8, title: "Prize Giving", url: "/khela.jpeg" },
+    { id: 9, title: "Annual Sports", url: "/annual sport.jpeg" },
+    { id: 10, title: "Campus", url: "/campus.jpeg" },
+    { id: 11, title: "Program", url: "/program.jpeg" },
+    { id: 11, title: "SSC BATCH 2025", url: "/ssc batch.jpeg" },
     
   ];
 
